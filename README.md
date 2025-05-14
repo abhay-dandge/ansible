@@ -22,3 +22,25 @@ sh ansible-installtion.sh
 
 All in the same pod or networked together, so they can communicate using hostnames
 
+**Deploy All in Kubernetes**
+
+kubectl apply -f myansible-deployment.yaml
+kubectl apply -f ubuntu-headless-service.yaml
+kubectl apply -f ubuntu-statefulset.yaml
+
+
+**Test DNS Communication**
+
+kubectl exec -it deploy/myansible -- bash
+
+
+ping ubuntu-0.ubuntu
+ping ubuntu-1.ubuntu
+...
+
+
+**This works because Kubernetes assigns each StatefulSet pod a DNS entry like:**
+
+<stateful-pod-name>.<headless-service-name>
+
+
