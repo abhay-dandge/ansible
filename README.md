@@ -1,5 +1,5 @@
 **Ansible Practice**
-/n
+
 Ansible installtion script for instation - ansible-installtion.sh
 
 """
