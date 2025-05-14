@@ -37,12 +37,22 @@ kubectl apply -f ubuntu-statefulset.yaml
 
 kubectl exec -it deploy/myansible -- bash
 
-
+(have to install iputils-ping pacage)
 ping ubuntu-0.ubuntu
 
 ping ubuntu-1.ubuntu
 ...
+**How to Add Your Own Inventory
 
+
+Option 1: Use a temporary file:
+
+
+
+echo -e "[ubuntu]\nubuntu-0.ubuntu\nubuntu-1.ubuntu" > inventory
+
+
+ansible -i inventory all -m ping**
 
 **This works because Kubernetes assigns each StatefulSet pod a DNS entry like:**
 
