@@ -39,6 +39,7 @@ kubectl exec -it deploy/myansible -- bash
 
 
 ping ubuntu-0.ubuntu
+
 ping ubuntu-1.ubuntu
 ...
 
