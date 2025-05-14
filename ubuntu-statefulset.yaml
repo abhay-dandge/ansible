@@ -13,8 +13,20 @@ spec:
       labels:
         app: ubuntu
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
         - name: ubuntu
-          image: ubuntu:20.04
-          command: ["/bin/bash", "-c", "sleep infinity"]
+          image: abhaydandgedocker/ubuntu-ssh
+          ports:
+            - containerPort: 22
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes: []
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
