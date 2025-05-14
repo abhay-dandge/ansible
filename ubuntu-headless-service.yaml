@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: ubuntu
 spec:
-  clusterIP: None  # Headless service
+  clusterIP: None
   selector:
     app: ubuntu
+  ports:
+    - port: 22
+      targetPort: 22
