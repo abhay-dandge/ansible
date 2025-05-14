@@ -25,7 +25,11 @@ All in the same pod or networked together, so they can communicate using hostnam
 **Deploy All in Kubernetes**
 
 kubectl apply -f myansible-deployment.yaml
+
+
 kubectl apply -f ubuntu-headless-service.yaml
+
+
 kubectl apply -f ubuntu-statefulset.yaml
 
 
