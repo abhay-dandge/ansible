@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myansible
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myansible
+  template:
+    metadata:
+      labels:
+        app: myansible
+    spec:
+      containers:
+        - name: ansible
+          image: docker.io/abhaydandgedocker/myansible
+          command: ["/bin/bash", "-c", "sleep infinity"]
