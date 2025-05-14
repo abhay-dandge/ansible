@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ubuntu
+spec:
+  serviceName: "ubuntu"
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ubuntu
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: ubuntu
+          image: ubuntu:20.04
+          command: ["/bin/bash", "-c", "sleep infinity"]
